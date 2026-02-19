@@ -25,7 +25,7 @@ st.latex(r"\frac{df(v)}{dv} = 0")
 st.write("When solved for velocity, this yields the most probable speed:")
 st.latex(r"v_{\text{mp}} = \sqrt{\frac{2RT}{M}} \equiv \sqrt{\frac{2kT}{m}}")
 
-st.title("Use the Calculator Below")
+st.title("Explore the Function Below")
 
 gas_data = {
     "neon": 0.02018, "argon": 0.039948, "krypton": 0.083789,
