@@ -7,7 +7,7 @@ import io
 
 
 st.title("Maxwell-Boltzmann Speed Distribution Calculator")
-st.write("Calculate and visualize the RMS, Mean, and Most Probable speeds of different gases.")
+st.write("Calculate and visualize the RMS, Mean, and Most Probable speeds of different gases at different temperatures.")
 st.write("Note: the calculations on this website assume ideal gas behavior.")
 
 
