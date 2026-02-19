@@ -20,8 +20,10 @@ st.latex(r"v_{\text{mean}} = \int_0^{\infty} v f(v) \, dv")
 st.write("When evaluated, this equation simplifies to:")
 st.latex(r"v_{\text{mean}} = \sqrt{\frac{8RT}{\pi M}} \equiv \sqrt{\frac{8kT}{\pi m}}")
 st.header("Most Probable Speed")
-st.write("The most probable speed is calculated by setting the derivative of the Maxwell-Boltzmann equation to zero and solving for x")
-st.latex(r"\frac{d}{dv}f(v) = 0 \quad \Rightarrow \quad v_{mp} = \sqrt{\frac{2 k_B T}{m}}")
+st.write("The most probable speed is calculated by taking the derivative of the Maxwell-Boltzmann probability density function with respect to velocity ($v$), setting it to zero, and solving for $v$. The mathematical condition for the peak of the curve is:")
+st.latex(r"\frac{df(v)}{dv} = 0")
+st.write("When solved for velocity, this yields the most probable speed:")
+st.latex(r"v_{\text{p}} = \sqrt{\frac{2RT}{M}} \equiv \sqrt{\frac{2kT}{m}}")
 
 st.title("Use the Calculator Below")
 
