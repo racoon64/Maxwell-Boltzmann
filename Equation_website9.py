@@ -21,7 +21,7 @@ gas_data = {
 }
 
 
-selected_gas = st.selectbox("Select a gas:", list(gas_data.keys()), index=6, format_func=lambda x: x.capitalize())  # Defaults to hydrogen
+selected_gas = st.selectbox("Select a gas:", list(gas_data.keys()), index=6, format_func=lambda x: x.capitalize()) 
 temp = st.slider("Temperature (K):", min_value=1, max_value=3000, value=298)
 mass = gas_data[selected_gas]
 
