@@ -9,6 +9,14 @@ import io
 st.title("Maxwell-Boltzmann Speed Distribution")
 st.write("The Maxwell-Boltzmann speed distribution function is a probability density function that describes the distribution of particle speeds in an ideal gas. The shape of this curve depends on two key parameters: the absolute temperature of the gas and the molar mass of the particles. The function is modeled by the equation:")
 st.latex(r"f(v) = 4\pi \left( \frac{m}{2\pi k_B T} \right)^{3/2} v^2 \exp\left( -\frac{m v^2}{2 k_B T} \right)")
+st.markdown("""
+When analyzing the Maxwell-Boltzmann distribution, there are three characteristic speeds typically plotted:
+* **Most Probable Speed ($v_{mp}$):** The speed at the peak of the curve, representing the most common speed among the particles.
+* **Mean Speed ($v_{avg}$):** The mathematical average speed of all particles.
+* **Root-Mean-Square Speed ($v_{rms}$):** The speed associated with the average kinetic energy of the gas.
+
+Because the distribution has a long tail extending toward higher speeds, these values always follow the order: $v_{mp} < v_{avg} < v_{rms}$.
+""")
 st.header("RMS Speed")
 st.write("The RMS speed is calculated by multiplying the Maxwell-Boltzmann probability density function by velocity squared ($v^2$), integrating from zero to infinity, and taking the square root. The definition is:")
 st.latex(r"v_{\text{rms}} = \sqrt{\int_0^{\infty} v^2 f(v) \, dv}")
