@@ -23,7 +23,7 @@ st.header("Most Probable Speed")
 st.write("The most probable speed is calculated by taking the derivative of the Maxwell-Boltzmann probability density function with respect to velocity ($v$), setting it to zero, and solving for $v$. The mathematical condition for the peak of the curve is:")
 st.latex(r"\frac{df(v)}{dv} = 0")
 st.write("When solved for velocity, this yields the most probable speed:")
-st.latex(r"v_{\text{p}} = \sqrt{\frac{2RT}{M}} \equiv \sqrt{\frac{2kT}{m}}")
+st.latex(r"v_{\text{mp}} = \sqrt{\frac{2RT}{M}} \equiv \sqrt{\frac{2kT}{m}}")
 
 st.title("Use the Calculator Below")
 
