@@ -12,7 +12,7 @@ st.latex(r"f(v) = 4\pi \left( \frac{m}{2\pi k_B T} \right)^{3/2} v^2 \exp\left( 
 st.header("RMS Speed")
 st.write("The RMS speed is calculated by multiplying the Maxwell-Boltzmann equation by x squared, integrating from zero to infinity and taking the square root")
 st.latex(r"v_{rms} = \sqrt{\int_0^{\infty} v^2 f(v) \, dv}")
-st.write("The mean speed is calculated by multiplying the Maxwell-Boltzmann equation by x, integrating from 0 to infinity and taking the square root")
+st.write("The mean speed is calculated by multiplying the Maxwell-Boltzmann equation by x and integrating from 0 to infinity")
 st.latex(r"v_{mean} = \sqrt{\int_0^{\infty} v f(v) \, dv}")
 
 
