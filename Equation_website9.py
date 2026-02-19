@@ -6,8 +6,8 @@ import contextlib
 import io
 
 
-st.title("Maxwell-Boltzmann Speed Distribution Calculator")
-st.write("Calculate and visualize the RMS, Mean, and Most Probable speeds of different gases at different temperatures using the Maxwell-Boltzmann equation.")
+st.title("Maxwell-Boltzmann Speed Distribution")
+st.write("The Maxwell-Boltzmann speed distribution function is a probability density function that describes the distribution of particle speeds in an ideal gas. The shape of this curve depends on two key parameters: the absolute temperature of the gas and the molar mass of the particles.")
 st.latex(r"f(v) = 4\pi \left( \frac{m}{2\pi k_B T} \right)^{3/2} v^2 \exp\left( -\frac{m v^2}{2 k_B T} \right)")
 st.header("RMS Speed")
 st.write("The RMS speed is calculated by multiplying the Maxwell-Boltzmann probability density function by velocity squared ($v^2$), integrating from zero to infinity, and taking the square root. The definition is:")
@@ -26,6 +26,7 @@ st.write("When solved for velocity, this yields the most probable speed:")
 st.latex(r"v_{\text{mp}} = \sqrt{\frac{2RT}{M}} \equiv \sqrt{\frac{2kT}{m}}")
 
 st.title("Explore the Function Below")
+st.write("Calculate and visualize the RMS, Mean, and Most Probable speeds of different gases at different temperatures using the Maxwell-Boltzmann equation.")
 
 gas_data = {
     "neon": 0.02018, "argon": 0.039948, "krypton": 0.083789,
