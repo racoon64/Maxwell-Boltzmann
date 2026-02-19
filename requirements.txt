@@ -1,6 +1,6 @@
 streamlit
 scipy
 numpy
-matplotlib.pyplot
+matplotlib
 contextlib
 io
