@@ -23,7 +23,7 @@ st.header("Most Probable Speed")
 st.write("The most probable speed is calculated by setting the derivative of the Maxwell-Boltzmann equation to zero and solving for x")
 st.latex(r"\frac{d}{dv}f(v) = 0 \quad \Rightarrow \quad v_{mp} = \sqrt{\frac{2 k_B T}{m}}")
 
-
+st.title("Use Calculator Below")
 
 gas_data = {
     "neon": 0.02018, "argon": 0.039948, "krypton": 0.083789,
