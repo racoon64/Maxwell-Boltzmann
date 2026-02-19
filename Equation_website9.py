@@ -15,6 +15,9 @@ st.latex(r"v_{rms} = \sqrt{\int_0^{\infty} v^2 f(v) \, dv}")
 st.header("Mean Speed")
 st.write("The mean speed is calculated by multiplying the Maxwell-Boltzmann equation by x and integrating from 0 to infinity")
 st.latex(r"v_{mean} = \sqrt{\int_0^{\infty} v f(v) \, dv}")
+st.header("Most Probable Speed")
+st.write("The most probable speed is calculated by setting the derivative of the Maxwell-Boltzmann equation to zero and solving for x")
+st.latex(r"\frac{d}{dv}f(v) = 0 \quad \Rightarrow \quad v_{mp} = \sqrt{\frac{2 k_B T}{m}}")
 
 
 
