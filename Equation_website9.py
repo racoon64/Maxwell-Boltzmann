@@ -75,5 +75,5 @@ if st.button("Calculate & Plot"):
     ax.set_xlabel(f"{selected_gas.capitalize()} Particle Speed at {temp} K (m/s)")
     ax.legend()
 
-    # Send the plot to the website
+
     st.pyplot(fig)
