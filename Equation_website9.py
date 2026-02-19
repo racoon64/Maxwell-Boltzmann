@@ -1,6 +1,5 @@
 import streamlit as st
-import scipy.optimize
-import scipy.integrate
+import scipy
 import numpy as np
 import matplotlib.pyplot as plt
 import contextlib
