@@ -5,7 +5,27 @@ import matplotlib.pyplot as plt
 import contextlib
 import io
 
-st.set_page_config(layout="wide")
+
+st.title("Maxwell-Boltzmann Speed Distribution Calculator")
+st.write("Calculate and visualize the RMS, Mean, and Most Probable speeds of different gases at different temperatures using the Maxwell-Boltzmann equation.")
+st.latex(r"f(v) = 4\pi \left( \frac{m}{2\pi k_B T} \right)^{3/2} v^2 \exp\left( -\frac{m v^2}{2 k_B T} \right)")
+st.header("RMS Speed")
+st.write("The RMS speed is calculated by multiplying the Maxwell-Boltzmann probability density function by velocity squared ($v^2$), integrating from zero to infinity, and taking the square root. The definition is:")
+st.latex(r"v_{\text{rms}} = \sqrt{\int_0^{\infty} v^2 f(v) \, dv}")
+st.write("When evaluated, this equation simplifies to:")
+st.latex(r"v_{\text{rms}} = \sqrt{\frac{3RT}{M}} \equiv \sqrt{\frac{3kT}{m}}")
+st.header("Mean Speed")
+st.write("The mean speed is calculated by multiplying the Maxwell-Boltzmann probability density function by velocity ($v$) and integrating from zero to infinity. The definition is:")
+st.latex(r"v_{\text{mean}} = \int_0^{\infty} v f(v) \, dv")
+st.write("When evaluated, this equation simplifies to:")
+st.latex(r"v_{\text{mean}} = \sqrt{\frac{8RT}{\pi M}} \equiv \sqrt{\frac{8kT}{\pi m}}")
+st.header("Most Probable Speed")
+st.write("The most probable speed is calculated by taking the derivative of the Maxwell-Boltzmann probability density function with respect to velocity ($v$), setting it to zero, and solving for $v$. The mathematical condition for the peak of the curve is:")
+st.latex(r"\frac{df(v)}{dv} = 0")
+st.write("When solved for velocity, this yields the most probable speed:")
+st.latex(r"v_{\text{mp}} = \sqrt{\frac{2RT}{M}} \equiv \sqrt{\frac{2kT}{m}}")
+
+st.title("Use the Calculator Below")
 
 gas_data = {
     "neon": 0.02018, "argon": 0.039948, "krypton": 0.083789,
@@ -15,32 +35,9 @@ gas_data = {
     "iodine": 0.253808, "sulfur": 0.25652
 }
 
-col_text, col_calc = st.columns([2, 1])
-with col_text:
-    st.title("Maxwell-Boltzmann Speed Distribution Calculator")
-    st.write("Calculate and visualize the RMS, Mean, and Most Probable speeds of different gases at different temperatures using the Maxwell-Boltzmann equation.")
-    st.latex(r"f(v) = 4\pi \left( \frac{m}{2\pi k_B T} \right)^{3/2} v^2 \exp\left( -\frac{m v^2}{2 k_B T} \right)")
-    st.header("RMS Speed")
-    st.write("The RMS speed is calculated by multiplying the Maxwell-Boltzmann probability density function by velocity squared ($v^2$), integrating from zero to infinity, and taking the square root. The definition is:")
-    st.latex(r"v_{\text{rms}} = \sqrt{\int_0^{\infty} v^2 f(v) \, dv}")
-    st.write("When evaluated, this equation simplifies to:")
-    st.latex(r"v_{\text{rms}} = \sqrt{\frac{3RT}{M}} \equiv \sqrt{\frac{3kT}{m}}")
-    st.header("Mean Speed")
-    st.write("The mean speed is calculated by multiplying the Maxwell-Boltzmann probability density function by velocity ($v$) and integrating from zero to infinity. The definition is:")
-    st.latex(r"v_{\text{mean}} = \int_0^{\infty} v f(v) \, dv")
-    st.write("When evaluated, this equation simplifies to:")
-    st.latex(r"v_{\text{mean}} = \sqrt{\frac{8RT}{\pi M}} \equiv \sqrt{\frac{8kT}{\pi m}}")
-    st.header("Most Probable Speed")
-    st.write("The most probable speed is calculated by taking the derivative of the Maxwell-Boltzmann probability density function with respect to velocity ($v$), setting it to zero, and solving for $v$. The mathematical condition for the peak of the curve is:")
-    st.latex(r"\frac{df(v)}{dv} = 0")
-    st.write("When solved for velocity, this yields the most probable speed:")
-    st.latex(r"v_{\text{mp}} = \sqrt{\frac{2RT}{M}} \equiv \sqrt{\frac{2kT}{m}}")
-with col_calc:
-    st.subheader("Calculator")
-    selected_gas = st.selectbox("Select a gas:", list(gas_data.keys()), index=6, format_func=lambda x: x.capitalize())
-    temp = st.slider("Temperature (K):", min_value=1, max_value=3000, value=298)
-    calc_clicked = st.button("Calculate & Plot")
 
+selected_gas = st.selectbox("Select a gas:", list(gas_data.keys()), index=6, format_func=lambda x: x.capitalize()) 
+temp = st.slider("Temperature (K):", min_value=1, max_value=3000, value=298)
 mass = gas_data[selected_gas]
 
 
