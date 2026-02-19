@@ -6,12 +6,12 @@ import matplotlib.pyplot as plt
 import contextlib
 import io
 
-# 1. Website Title
+
 st.title("Maxwell-Boltzmann Speed Distribution Calculator")
 st.write("Calculate and visualize the RMS, Mean, and Most Probable speeds of different gases.")
 st.write("Note: the calculations on this website assume ideal gas behavior.")
 
-# 2. Gas Data Dictionary (Cleaner than a loop)
+
 gas_data = {
     "neon": 0.02018, "argon": 0.039948, "krypton": 0.083789,
     "helium": 0.0040026, "xenon": 0.131293, "radon": 0.222,
@@ -20,12 +20,12 @@ gas_data = {
     "iodine": 0.253808, "sulfur": 0.25652
 }
 
-# 3. Interactive Web Inputs
+
 selected_gas = st.selectbox("Select a gas:", list(gas_data.keys()), index=6, format_func=lambda x: x.capitalize())  # Defaults to hydrogen
 temp = st.slider("Temperature (K):", min_value=1, max_value=3000, value=298)
-
 mass = gas_data[selected_gas]
-# 4. Your Math Functions
+
+
 def mp(mass, temp):
     silent_output = io.StringIO()
     with contextlib.redirect_stdout(silent_output):
@@ -36,8 +36,6 @@ rms_noint = lambda speed, mass, temp: 4 * np.pi * (((mass/(2 * 8.314 * temp))/ n
 mean_noint = lambda speed, mass, temp: 4 * np.pi * (((mass/(2 * 8.314 * temp))/ np.pi)**(3/2) ) * speed**2 * np.exp(-(mass/(2 * 8.314 * temp)) * speed**2)* speed
 speed_func = lambda speed, mass, temp: 4 * np.pi * (((mass/(2*8.314*temp))/np.pi)**(3/2)) * speed**2 * np.exp(-(mass/(2*8.314*temp)) * speed**2)
 
-# 5. Computations
-# A Streamlit button to trigger the calculation (keeps the site fast)
 if st.button("Calculate & Plot"):
     
     rms_int = scipy.integrate.quad(rms_noint, 0, np.inf, args=(mass, temp))
@@ -45,17 +43,12 @@ if st.button("Calculate & Plot"):
     mean_int = scipy.integrate.quad(mean_noint, 0, np.inf, args=(mass, temp))[0]
     p = mp(mass, temp)
 
-    # Display Text Results on the Website
     st.subheader(f"Results for {selected_gas.capitalize()} at {temp} K")
     col1, col2, col3 = st.columns(3)
     col1.metric("Most Probable Speed", f"{p:.2f} m/s")
     col2.metric("Mean Speed", f"{mean_int:.2f} m/s")
     col3.metric("RMS Speed", f"{rms:.2f} m/s")
 
-    # 6. Plotting
-    # (Maxwell-Boltzmann distribution graph)
-
-    # Fixed x-axis (m/s) - does not scale with temperature
     x_axis = np.linspace(0, 5000, 3000) 
     
     n = np.array(speed_func(x_axis, mass, temp))
@@ -70,8 +63,7 @@ if st.button("Calculate & Plot"):
     ax.plot(mean_int, y_mean, marker="*", label="Mean", color="black", markersize=10, linestyle="None")
     ax.plot(rms, y_rms, marker="x", label="RMS", color="black", markersize=10, linestyle="None")
 
-    # Data labels off to the side with a line to each point
-    offset = 400  # horizontal distance of label from point (in data coords)
+    offset = 400  
     ax.annotate(f"{p:.0f}", (p, y_p), xytext=(p + offset, y_p), fontsize=9, color="black",
                 ha="left", va="center", arrowprops=dict(arrowstyle="-", color="black"))
     ax.annotate(f"{mean_int:.0f}", (mean_int, y_mean), xytext=(mean_int + offset, y_mean), fontsize=9, color="black",
