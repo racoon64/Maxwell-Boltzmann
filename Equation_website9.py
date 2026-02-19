@@ -10,8 +10,11 @@ st.title("Maxwell-Boltzmann Speed Distribution Calculator")
 st.write("Calculate and visualize the RMS, Mean, and Most Probable speeds of different gases at different temperatures using the Maxwell-Boltzmann equation.")
 st.latex(r"f(v) = 4\pi \left( \frac{m}{2\pi k_B T} \right)^{3/2} v^2 \exp\left( -\frac{m v^2}{2 k_B T} \right)")
 st.header("RMS Speed")
-st.write("The RMS speed is calculated by multiplying the Maxwell-Boltzmann equation by x squared, integrating from 0 to infinity and taking the square root")
+st.write("The RMS speed is calculated by multiplying the Maxwell-Boltzmann equation by x squared, integrating from zero to infinity and taking the square root")
 st.latex(r"v_{rms} = \sqrt{\int_0^{\infty} v^2 f(v) \, dv}")
+st.write("The mean speed is calculated by multiplying the Maxwell-Boltzmann equation by x, integrating from 0 to infinity and taking the square root")
+st.latex(r"v_{mean} = \sqrt{\int_0^{\infty} v f(v) \, dv}")
+
 
 
 gas_data = {
