@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import contextlib
 import io
 
+st.set_page_config(layout="wide")
 
 gas_data = {
     "neon": 0.02018, "argon": 0.039948, "krypton": 0.083789,
